@@ -42,7 +42,7 @@ public abstract class Product {
         this.id = id;
         this.name = name;
         this.category = category;
-        this.price = price;
+        this.price = price.setScale(2, java.math.RoundingMode.HALF_UP);
     }
 
     // Updates the product's price (used for price changes in Warehouse)
