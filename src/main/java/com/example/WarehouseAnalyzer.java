@@ -164,12 +164,6 @@ class WarehouseAnalyzer {
             double diff = Math.abs(p.price().doubleValue() - mean);
             if (diff > threshold) outliers.add(p);
         }
-        if (outliers.size() == 1 && products.size() > 1) {
-            Product minPriceProduct = products.stream().min(Comparator.comparing(Product::price)).orElse(null);
-            if (minPriceProduct != null && !outliers.contains(minPriceProduct)) {
-                outliers.add(minPriceProduct);
-            }
-        }
 
         // workaround for test compliance
         if (outliers.size() == 1 && products.size() > 1) {
@@ -178,7 +172,7 @@ class WarehouseAnalyzer {
                 outliers.add(minPriceProduct);
             }
         }
-            
+
         return outliers;
     }*/
 
